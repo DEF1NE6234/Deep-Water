@@ -1,3 +1,6 @@
+/* =========================================
+   RESET / BASE
+   ========================================= */
 * {
     padding: 0;
     margin: 0;
@@ -8,6 +11,10 @@
 body {
     background-color: #050814;
 }
+
+/* =========================================
+   HEADER / NAV
+   ========================================= */
 .header {
     position: sticky;
     z-index: 1000;
@@ -54,18 +61,20 @@ body {
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
     width: 160px;
-
     font-weight: bold;
 }
 
 .nav__button:active {
     color: black;
-    font-size: 17.6;
+    font-size: 17.6px;
     border: 10px solid #ffcc7f;
     transform: scale(1.1);
     background-color: #ffcc7f;
 }
 
+/* =========================================
+   HERO
+   ========================================= */
 .hero {
     color: black;
     background-color: #f0f8f8;
@@ -118,6 +127,7 @@ body {
 .hero__title {
     transition: font-size 1.5s ease;
 }
+
 .hero__title:hover {
     font-size: 36px;
 }
@@ -159,6 +169,10 @@ body {
     background-color: #ffe0ab;
     border: 5px solid #ffcc7f;
 }
+
+/* =========================================
+   TEXTBLOCK (Abyss section)
+   ========================================= */
 .textBlock {
     background-color: azure;
     border: 10px double #1b4b5a;
@@ -205,20 +219,21 @@ body {
     background-color: #001f54;
     color: azure;
     border: 10px solid #003380;
-    height: 180px;
+    height: fit-content;
+    min-height: 180px;
     padding: 16px 32px;
     border-radius: 20px;
     font-weight: bold;
     transition:
         background-color 0.4s ease,
-        height 2s ease,
+        min-height 1s ease,
         border-radius 0.4s ease;
 }
 
 .textBlock__part:hover {
     background-color: #003380;
     border: 10px solid #001f54;
-    height: 210px;
+    min-height: 210px;
     border-radius: 25px;
 }
 
@@ -270,6 +285,138 @@ body {
     opacity: 1;
 }
 
+/* =========================================
+   LOGIC
+   ========================================= */
+.logic {
+    background-color: azure;
+    border: 10px double #1b4b5a;
+    margin: 24px;
+    padding: 40px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logic__img {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.logic__img-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+}
+
+.logic__img-photo.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.logic__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.logic__title {
+    background-color: #001f54;
+    color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 22px;
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+.logic__title:hover {
+    color: black;
+    background-color: #003380;
+}
+
+.logic__label-1,
+.logic__label-2,
+.logic__label-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    overflow: hidden;
+    background-color: #001f54;
+    color: azure;
+    border: 6px solid #003380;
+    padding: 16px 24px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition:
+        min-height 1s ease,
+        background-color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.logic__label-1:hover,
+.logic__label-2:hover,
+.logic__label-3:hover {
+    min-height: 150px;
+    background-color: #003380;
+    border-color: #001f54;
+}
+
+.buttonBlock {
+    display: flex;
+    gap: 25px;
+}
+
+.logic__button-up,
+.logic__button-down {
+    width: 100px;
+    background-color: #001f54;
+    border: 5px solid #003380;
+    border-radius: 10px;
+    padding: 8px 20px;
+    color: azure;
+    font-weight: bold;
+    transition:
+        width 1s ease,
+        transform 5ms ease;
+}
+
+.logic__button-up:hover,
+.logic__button-down:hover {
+    width: 125px;
+    background-color: #003380;
+    border-color: #001f54;
+}
+
+.logic__button-up:active,
+.logic__button-down:active {
+    color: black;
+    transform: scale(1.1);
+    background-color: #ffe0ab;
+    border: 5px solid #ffcc7f;
+}
+
+/* =========================================
+   FOOTER NAV
+   ========================================= */
 .footerNav {
     display: flex;
     align-items: center;
@@ -300,7 +447,7 @@ body {
     font-weight: bold;
     transition:
         width 0.5s ease,
-        tramsform 5ms ease;
+        transform 5ms ease;
 }
 
 .footerNav__button:hover {
@@ -325,6 +472,10 @@ body {
     align-items: stretch;
     list-style: none;
 }
+
+/* =========================================
+   FOOTER
+   ========================================= */
 .footer {
     display: flex;
     align-items: center;
@@ -348,14 +499,15 @@ body {
     display: flex;
     gap: 20px;
 }
-.footerText__subTitle {
-    color: #737578;
-    font-size: 12px;
-    transition: font-size 1s ease;
+
+.footerText {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
 }
 
-.footerText__subTitle:hover {
-    font-size: 13px;
+.footerText a {
+    text-decoration: none;
 }
 
 .footerText__title {
@@ -367,9 +519,17 @@ body {
 .footerText__title:hover {
     font-size: 18px;
 }
-.footerText a {
-    text-decoration: none;
+
+.footerText__subTitle {
+    color: #737578;
+    font-size: 12px;
+    transition: font-size 1s ease;
 }
+
+.footerText__subTitle:hover {
+    font-size: 13px;
+}
+
 .footer__label {
     color: #737578;
     font-size: 12px;
@@ -378,10 +538,4 @@ body {
 
 .footer__label:hover {
     font-size: 13px;
-}
-
-.footerText {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
 }
